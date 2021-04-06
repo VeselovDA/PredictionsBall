@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:exMob2"
+             xmlns:vm="clr-namespace:exMob2.ViewModels"
+             x:Class="exMob2.Views.MainPage"
+             BackgroundColor="White"
+             >
+    <ContentPage.BindingContext>
+        <vm:MainPageVM />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        
+           
+  
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <ImageButton Margin="20" Source="{Binding Path=Sourse}"  Grid.Column="1" Grid.Row="1" Command="{Binding Path=ClickCommand}" Padding="-50" BackgroundColor="White">
+            
+        </ImageButton>
+        <Label  IsVisible="{Binding Path=IsVisible}" Text="{Binding Path=LabelProgres}" Grid.Row="2" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+        <ProgressBar Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Progress="{Binding Path=Progress}" ProgressColor="Green" Margin="10" IsVisible="{Binding Path=IsVisible}">
+            <ProgressBar.ScaleY>
+                <OnPlatform
+                x:TypeArguments="x:Double"              
+                Android="4" />
+            </ProgressBar.ScaleY>
+        </ProgressBar>
+
+
+    </Grid>
+    
+   
+
+</ContentPage>
